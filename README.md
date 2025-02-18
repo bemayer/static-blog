@@ -41,16 +41,6 @@ Then open **http://localhost:8000** in your browser.
 Decap CMS provides an admin interface for managing blog posts.
 To access it, navigate to **/admin** in the deployed app.
 
-## 🎯 Roadmap
-
-- [ ] Enhance CMS configuration for more flexibility
-- [ ] Add Markdown support for posts
-- [ ] Improve styling & UI components
-
-## 🛠️ Contributing
-
-This is an experimental project, but contributions, feedback, and ideas are welcome!
-
 ---
 
 **Author**: [Benoît Mayer](https://github.com/bemayer)
