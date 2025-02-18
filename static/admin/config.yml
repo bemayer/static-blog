@@ -1,0 +1,37 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+
+backend:
+  name: github               # Use the GitHub backend for direct commits.
+  repo: 
+  branch: main               # The branch where your pages/content live.
+  auth_scope: repo           # Permission scope needed for commit operations.
+
+media_folder: "static/img"   # Folder where uploaded media files are stored.
+public_folder: "/img"        # Public URL path to access those media files.
+
+collections:
+  - name: "pages"            # A unique identifier for this collection.
+    label: "Pages"           # Display label for the CMS.
+    folder: "content/pages"  # Relative path in your repo where page files reside.
+    create: true             # Allow creating new pages.
+    slug: "{{slug}}"         # URL slug pattern.
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
