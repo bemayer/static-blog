@@ -3,8 +3,14 @@ backend:
   repo: bemayer/fresh-blog
   branch: main
   auth_scope: repo
+  commit_messages:
+    create: '✨ Create {{collection}} "{{slug}}"'
+    update: '📝 Update {{collection}} "{{slug}}"'
+    delete: '🗑️ Delete {{collection}} "{{slug}}"'
+    uploadMedia: '📸 Upload "{{path}}"'
+    deleteMedia: '🗑️ Delete media "{{path}}"'
 
-media_folder: "static/images"
+media_folder: "public/images"
 public_folder: "/images"
 
 collections:

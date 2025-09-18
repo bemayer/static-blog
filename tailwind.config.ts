@@ -1,7 +1,14 @@
-import { type Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
-export default {
+const config: Config = {
   content: [
-    "{routes,islands,components}/**/*.{ts,tsx,js,jsx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-} satisfies Config;
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+export default config
