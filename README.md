@@ -2,7 +2,7 @@
 
 A modern blog setup integrating **[Decap CMS](https://decapcms.org/)** (a headless CMS) with **[Next.js](https://nextjs.org/)** running on **[Deno](https://deno.com/)**, deployed to **GitHub Pages**.
 
-👉 **Live Demo:** [Your GitHub Pages URL will be here]
+👉 **Live Demo:** [bemayer.github.io/static-blog](https://bemayer.github.io/static-blog)
 
 ## 📌 Project Goals
 
@@ -28,10 +28,10 @@ A modern blog setup integrating **[Decap CMS](https://decapcms.org/)** (a headle
 
 ```bash
 # Clone the repository
-git clone https://github.com/bemayer/fresh-blog.git
+git clone https://github.com/bemayer/static-blog.git
 
 # Navigate to the project folder:
-cd fresh-blog
+cd static-blog
 
 # Install dependencies:
 deno install
@@ -70,8 +70,8 @@ To enable content editing through the `/admin` interface:
 
 2. **Create OAuth App**:
    - **Application name**: `Your Blog Name - CMS`
-   - **Homepage URL**: `https://yourusername.github.io/repository-name`
-   - **Authorization callback URL**: `https://yourusername.github.io/repository-name/admin/`
+   - **Homepage URL**: `https://bemayer.github.io/static-blog`
+   - **Authorization callback URL**: `https://bemayer.github.io/static-blog/admin/`
    - Click **Register application**
 
 3. **Get Credentials**:

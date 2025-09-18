@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: bemayer/fresh-blog
+  repo: bemayer/static-blog
   branch: main
   auth_scope: repo
   commit_messages:
@@ -11,7 +11,7 @@ backend:
     deleteMedia: '🗑️ Delete media "{{path}}"'
 
 media_folder: "public/images"
-public_folder: "/images"
+public_folder: "/static-blog/images"
 
 collections:
   - name: "page"

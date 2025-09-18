@@ -5,8 +5,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: '',
-  assetPrefix: '',
+  basePath: '/static-blog',
+  assetPrefix: '/static-blog',
   distDir: 'out'
 }
 
