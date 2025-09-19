@@ -1,0 +1,3 @@
+[build]
+  command = "deno upgrade && deno task build"
+  publish = "out"
