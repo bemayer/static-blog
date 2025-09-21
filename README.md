@@ -1,10 +1,14 @@
 # Next.js Static Blog with Deno 📝🚀
 
-A modern static blog built with **[Next.js](https://nextjs.org/)** running on **[Deno](https://deno.com/)**, featuring integrated content management and automated deployment to **GitHub Pages**.
+A modern static blog built with **[Next.js](https://nextjs.org/)** running on
+**[Deno](https://deno.com/)**, featuring integrated content management and
+automated deployment to **GitHub Pages**.
 
-👉 **Live Demo:** [bemayer.github.io/static-blog](https://bemayer.github.io/static-blog)
+👉 **Live Demo:**
+[bemayer.github.io/static-blog](https://bemayer.github.io/static-blog)
 
 ## Table of Contents
+
 - [Project Goals](#-project-goals)
 - [Tech Stack](#️-tech-stack)
 - [Getting Started](#-getting-started)
@@ -21,7 +25,8 @@ A modern static blog built with **[Next.js](https://nextjs.org/)** running on **
 
 ## 🛠️ Tech Stack
 
-- **[Next.js](https://nextjs.org/)** – React framework with static site generation
+- **[Next.js](https://nextjs.org/)** – React framework with static site
+  generation
 - **[Deno](https://deno.com/)** – Secure runtime for JavaScript and TypeScript
 - **[GitHub Pages](https://pages.github.com/)** – Free static site hosting
 - **[Tailwind CSS](https://tailwindcss.com/)** – Utility-first CSS framework
@@ -30,6 +35,7 @@ A modern static blog built with **[Next.js](https://nextjs.org/)** running on **
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - [Deno](https://deno.land/) installed
 
 ### Steps
@@ -77,13 +83,14 @@ Choose between two content management options based on your needs:
 ### Option 1: Decap CMS (Advanced)
 
 **Benefits:**
+
 - 🎨 **Visual Editor**: Rich WYSIWYG markdown editor
 - 📸 **Media Management**: Upload and organize images
 - 👥 **Workflow Support**: Editorial workflow with drafts/reviews
 - 🔄 **Real-time Preview**: See changes before publishing
 
-**How it works:**
-Decap CMS is served as static files at `/admin` and provides a web-based interface for editing your blog content.
+**How it works:** Decap CMS is served as static files at `/admin` and provides a
+web-based interface for editing your blog content.
 
 #### Authentication Flow
 
@@ -107,13 +114,16 @@ sequenceDiagram
     CMS->>U: Authenticated interface
 ```
 
-**Why Netlify is needed:**
-Decap CMS can absolutely use GitHub auth, but needs a secure OAuth token exchange endpoint. GitHub Pages (static hosting) can't provide this server-side component, so Netlify provides the missing serverless OAuth proxy.
+**Why Netlify is needed:** Decap CMS can absolutely use GitHub auth, but needs a
+secure OAuth token exchange endpoint. GitHub Pages (static hosting) can't
+provide this server-side component, so Netlify provides the missing serverless
+OAuth proxy.
 
 #### Setup Instructions
 
 1. **Create GitHub OAuth App**:
-   - Go to [GitHub Settings > Developer Settings > OAuth Apps](https://github.com/settings/developers)
+   - Go to
+     [GitHub Settings > Developer Settings > OAuth Apps](https://github.com/settings/developers)
    - Click **"New OAuth App"**
    - Fill in:
      - **Application name**: `Your Blog CMS`
@@ -125,7 +135,8 @@ Decap CMS can absolutely use GitHub auth, but needs a secure OAuth token exchang
    - Sign up at [netlify.com](https://netlify.com) (free account)
    - Create new site from Git → Select your repository
    - Don't worry about build settings/deployment failures
-   - Go to **Site Settings** → **Domain Management** → **Options** → **Access & Security** → **OAuth**
+   - Go to **Site Settings** → **Domain Management** → **Options** → **Access &
+     Security** → **OAuth**
    - Click **"Install Provider"** → **"GitHub"**
    - Enter your Client ID and Client Secret
    - Save settings
@@ -138,19 +149,23 @@ Decap CMS can absolutely use GitHub auth, but needs a secure OAuth token exchang
 
 #### Troubleshooting
 
-- **"Cannot connect to repository"**: Check your OAuth app callback URL is exactly `https://api.netlify.com/auth/done`
-- **"Not Found" on /admin**: Ensure the deployment worked and try `/admin/` with trailing slash
+- **"Cannot connect to repository"**: Check your OAuth app callback URL is
+  exactly `https://api.netlify.com/auth/done`
+- **"Not Found" on /admin**: Ensure the deployment worked and try `/admin/` with
+  trailing slash
 - **Authentication loops**: Clear browser cache and cookies for both sites
 
 ### Option 2: Prose.io (Simple)
 
 **Benefits:**
+
 - 🚀 **Zero Setup**: No configuration required
 - 🔗 **Direct GitHub**: Connects directly to your repository
 - ⚡ **Lightweight**: Simple markdown editing interface
 - 🔓 **No External Dependencies**: Works with just GitHub authentication
 
 **How to use:**
+
 1. Visit [prose.io](https://prose.io)
 2. Authorize with your GitHub account
 3. Navigate to your repository → `posts` folder
@@ -158,12 +173,14 @@ Decap CMS can absolutely use GitHub auth, but needs a secure OAuth token exchang
 5. Commit changes directly to GitHub
 
 **When to choose:**
+
 - You prefer simple markdown editing over visual editors
 - You don't want to set up external services
 - You occasionally edit content and don't need advanced features
 - You're comfortable with markdown syntax
 
 **Limitations:**
+
 - No media upload interface (add images manually to `public/images/`)
 - Basic markdown editor (no WYSIWYG)
 - No editorial workflow features
@@ -172,6 +189,7 @@ Decap CMS can absolutely use GitHub auth, but needs a secure OAuth token exchang
 ## 🤝 Contributing
 
 Contributions are welcome! Feel free to:
+
 - 🐛 Report bugs
 - 💡 Suggest new features
 - 📝 Improve documentation

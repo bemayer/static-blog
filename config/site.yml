@@ -1,0 +1,11 @@
+title: "Static Blog"
+description: "A modern static blog built with Next.js, Deno, and Decap CMS - showcasing maximum Deno usage with professional content management."
+url: "https://bemayer.github.io/static-blog"
+author_name: "Blog Author"
+author_email: "author@example.com"
+social:
+  twitter: ""
+  github: "bemayer/static-blog"
+  linkedin: ""
+analytics_id: ""
+enable_comments: false
