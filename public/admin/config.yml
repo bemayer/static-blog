@@ -13,13 +13,129 @@ backend:
 media_folder: "public/images"
 public_folder: "/static-blog/images"
 
+# Editorial workflow for content review
+publish_mode: editorial_workflow
+
+# Enable local development
+local_backend: true
+
 collections:
-  - name: "page"
-    label: "Page"
+  - name: "blog"
+    label: "Blog Posts"
     folder: "posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - {
+          label: "Publish Date",
+          name: "date",
+          widget: "datetime",
+          required: true,
+          format: "YYYY-MM-DDTHH:mm:ss.SSSZ",
+          date_format: "YYYY-MM-DD",
+          time_format: "HH:mm:ss",
+        }
+      - {
+          label: "Author",
+          name: "author",
+          widget: "string",
+          required: false,
+          hint: "Leave empty for default author",
+        }
+      - {
+          label: "Tags",
+          name: "tags",
+          widget: "list",
+          required: false,
+          hint: "Add relevant tags for categorization",
+          allow_add: true,
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+          hint: "Brief description for SEO and social sharing",
+        }
+      - {
+          label: "Featured Image",
+          name: "featured_image",
+          widget: "image",
+          required: false,
+          hint: "Main image for the post",
+        }
+      - {
+          label: "Draft",
+          name: "draft",
+          widget: "boolean",
+          default: false,
+          hint: "Check to save as draft (won't appear on site)",
+        }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Site Configuration"
+        name: "site_config"
+        file: "config/site.yml"
+        fields:
+          - {
+              label: "Site Title",
+              name: "title",
+              widget: "string",
+              default: "Static Blog",
+            }
+          - {
+              label: "Site Description",
+              name: "description",
+              widget: "text",
+              default: "A modern static blog built with Next.js and Deno",
+            }
+          - { label: "Site URL", name: "url", widget: "string" }
+          - {
+              label: "Default Author",
+              name: "author_name",
+              widget: "string",
+              default: "Blog Author",
+            }
+          - { label: "Author Email", name: "author_email", widget: "string" }
+          - {
+              label: "Social Links",
+              name: "social",
+              widget: "object",
+              collapsed: false,
+              fields: [
+                {
+                  label: "Twitter",
+                  name: "twitter",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "GitHub",
+                  name: "github",
+                  widget: "string",
+                  required: false,
+                },
+                {
+                  label: "LinkedIn",
+                  name: "linkedin",
+                  widget: "string",
+                  required: false,
+                },
+              ],
+            }
+          - {
+              label: "Analytics ID",
+              name: "analytics_id",
+              widget: "string",
+              required: false,
+            }
+          - {
+              label: "Enable Comments",
+              name: "enable_comments",
+              widget: "boolean",
+              default: false,
+            }
