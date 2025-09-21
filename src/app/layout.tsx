@@ -1,23 +1,31 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import "./globals.css";
+import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: 'Static Blog',
-  description: 'A modern static blog built with Next.js and Deno',
+  title: "Static Blog",
+  description: "A modern static blog built with Next.js and Deno",
   icons: {
     icon: [
-      { url: '/static-blog/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/static-blog/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+      {
+        url: "/static-blog/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/static-blog/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
     ],
-    apple: '/static-blog/apple-touch-icon.png',
+    apple: "/static-blog/apple-touch-icon.png",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -38,5 +46,5 @@ export default function RootLayout({
         </div>
       </body>
     </html>
-  )
+  );
 }
