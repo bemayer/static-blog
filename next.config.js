@@ -1,13 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  eslint: {
+    // Disable ESLint during builds since we use Deno's linter
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // Deno handles TypeScript checking via deno check
+    ignoreBuildErrors: false,
+  },
+  output: "export",
   trailingSlash: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  basePath: '/static-blog',
-  assetPrefix: '/static-blog',
-  distDir: 'out'
-}
+  basePath: "/static-blog",
+  assetPrefix: "/static-blog",
+  distDir: "out",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

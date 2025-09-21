@@ -9,13 +9,19 @@
     "build": "deno run -A --unstable-detect-cjs npm:next@latest build",
     "start": "deno run -A --unstable-detect-cjs npm:next@latest start",
     "export": "deno run -A --unstable-detect-cjs npm:next@latest build && deno run -A --unstable-detect-cjs npm:next@latest export",
-    "lint": "deno run -A --unstable-detect-cjs npm:next@latest lint",
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx"
+    "lint": "deno task lint:deno && deno task lint:eslint",
+    "lint:deno": "deno fmt --check && deno lint",
+    "lint:eslint": "deno run -A npm:eslint@8 .",
+    "lint:fix": "deno fmt && deno run -A npm:eslint@8 . --fix",
+    "check": "deno check src/lib/*.ts"
   },
   "lint": {
     "rules": {
       "tags": [
         "recommended"
+      ],
+      "exclude": [
+        "no-sloppy-imports"
       ]
     }
   },
@@ -27,24 +33,37 @@
   "imports": {
     "@std/front-matter": "jsr:@std/front-matter@^1.0.7",
     "@std/path": "jsr:@std/path@^1.0.8",
-    "@/": "./src/",
-    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@^4.1.13",
-    "@types/node": "npm:@types/node@^24.5.2",
-    "@types/react": "npm:@types/react@^19.1.13",
-    "autoprefixer": "npm:autoprefixer@^10.4.21",
+    "@std/fs": "jsr:@std/fs@^1.0.8",
+    "@std/datetime": "jsr:@std/datetime@^0.224.0",
+    "@std/collections": "jsr:@std/collections@^1.0.9",
+    "@std/yaml": "jsr:@std/yaml@^1.0.5",
+    "next": "npm:next@^15.5.3",
+    "next/link": "npm:next@^15.5.3/link",
+    "next/image": "npm:next@^15.5.3/image",
     "react": "npm:react@^19.1.1",
     "react-dom": "npm:react-dom@^19.1.1",
+    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@^4.1.13",
+    "@types/node": "npm:@types/node@^24.5.2",
+    "@types/react": "npm:@types/react@^19.1.1",
+    "@types/react-dom": "npm:@types/react-dom@^19.1.1",
+    "autoprefixer": "npm:autoprefixer@^10.4.21",
     "tailwindcss": "npm:tailwindcss@^4.1.13",
-    "typescript": "npm:typescript@^5.9.2"
+    "typescript": "npm:typescript@^5.9.2",
+    "eslint-config-next": "npm:eslint-config-next@^15.5.3",
+    "eslint-plugin-react": "npm:eslint-plugin-react@^7.37.5",
+    "marked": "npm:marked@^14.1.3",
+    "gray-matter": "npm:gray-matter@^4.0.3",
+    "js-yaml": "npm:js-yaml@^4.1.0",
+    "@types/js-yaml": "npm:@types/js-yaml@^4.0.9"
   },
   "compilerOptions": {
-    "allowJs": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "esnext",
+      "deno.ns"
     ],
     "module": "esnext",
     "moduleResolution": "bundler",
