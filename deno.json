@@ -1,6 +1,9 @@
 {
   "lock": false,
-  "unstable": ["unsafe-proto", "sloppy-imports"],
+  "unstable": [
+    "unsafe-proto",
+    "sloppy-imports"
+  ],
   "tasks": {
     "dev": "deno run -A --unstable-detect-cjs npm:next@latest dev",
     "build": "deno run -A --unstable-detect-cjs npm:next@latest build",
@@ -24,17 +27,29 @@
   "imports": {
     "@std/front-matter": "jsr:@std/front-matter@^1.0.7",
     "@std/path": "jsr:@std/path@^1.0.8",
-    "@/": "./src/"
+    "@/": "./src/",
+    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@^4.1.13",
+    "@types/node": "npm:@types/node@^24.5.2",
+    "@types/react": "npm:@types/react@^19.1.13",
+    "autoprefixer": "npm:autoprefixer@^10.4.21",
+    "react": "npm:react@^19.1.1",
+    "react-dom": "npm:react-dom@^19.1.1",
+    "tailwindcss": "npm:tailwindcss@^4.1.13",
+    "typescript": "npm:typescript@^5.9.2"
   },
   "compilerOptions": {
-  "allowJs": true,
-  "jsx": "react-jsx",
-  "jsxImportSource": "react",
-  "lib": ["dom", "dom.iterable", "esnext"],
-  "module": "esnext",
-  "moduleResolution": "bundler",
-  "strict": true,
-  "skipLibCheck": true
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true
   },
   "nodeModulesDir": "auto"
 }

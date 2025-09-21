@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getPostBySlug, getAllPostSlugs } from '@/lib/posts'
+import { getPostBySlug, getAllPostSlugs } from '../../../lib/posts'
 
 interface PostPageProps {
   params: Promise<{
