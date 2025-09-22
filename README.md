@@ -98,62 +98,55 @@ web-based interface for editing your blog content.
 sequenceDiagram
     participant U as User
     participant CMS as Decap CMS
-    participant N as Netlify OAuth
+    participant DB as DecapBridge
     participant GH as GitHub API
     participant GP as GitHub Pages
 
     U->>GP: Visit /admin
     GP->>U: Serve Decap CMS
-    U->>CMS: Click "Login with GitHub"
-    CMS->>N: Request OAuth (needs serverless endpoint)
-    Note over CMS,N: GitHub Pages can't provide server-side<br/>OAuth token exchange
-    N->>GH: GitHub OAuth flow
-    GH->>N: Return access token
-    N->>CMS: Provide token
+    U->>CMS: Click "Login"
+    CMS->>DB: Request authentication
+    Note over CMS,DB: DecapBridge provides secure<br/>authentication without requiring<br/>users to have GitHub accounts
+    DB->>GH: GitHub OAuth flow (on behalf of user)
+    GH->>DB: Return access token
+    DB->>CMS: Provide authenticated session
     CMS->>GH: Make API calls with token
     CMS->>U: Authenticated interface
 ```
 
-**Why Netlify is needed:** Decap CMS can absolutely use GitHub auth, but needs a
-secure OAuth token exchange endpoint. GitHub Pages (static hosting) can't
-provide this server-side component, so Netlify provides the missing serverless
-OAuth proxy.
+**Why DecapBridge is used:** DecapBridge allows content creators to access Decap CMS without needing GitHub accounts. It provides a secure authentication layer that handles the OAuth token exchange, allowing users to create their own passwords just for the CMS while maintaining the Git-based workflow.
 
 #### Setup Instructions
 
-1. **Create GitHub OAuth App**:
-   - Go to
-     [GitHub Settings > Developer Settings > OAuth Apps](https://github.com/settings/developers)
-   - Click **"New OAuth App"**
-   - Fill in:
-     - **Application name**: `Your Blog CMS`
-     - **Homepage URL**: `https://yourusername.github.io/repository-name`
-     - **Authorization callback URL**: `https://api.netlify.com/auth/done`
-   - Save the **Client ID** and **Client Secret**
+1. **Set up DecapBridge Authentication**:
+   - Sign up at [decapbridge.com](https://decapbridge.com) (free account)
+   - Create a new "Site" for your blog
+   - Connect your GitHub repository to the site
+   - DecapBridge will automatically handle the GitHub OAuth configuration
+   - Copy the provided config.yml settings (identity_url and gateway_url)
 
-2. **Configure Netlify for OAuth** (not for hosting):
-   - Sign up at [netlify.com](https://netlify.com) (free account)
-   - Create new site from Git → Select your repository
-   - Don't worry about build settings/deployment failures
-   - Go to **Site Settings** → **Domain Management** → **Options** → **Access &
-     Security** → **OAuth**
-   - Click **"Install Provider"** → **"GitHub"**
-   - Enter your Client ID and Client Secret
-   - Save settings
+2. **Update your CMS configuration**:
+   - The `config.yml` file in `/public/admin/` is already configured with DecapBridge
+   - No additional setup required - the authentication URLs are pre-configured
 
-3. **Access CMS**:
+3. **Invite collaborators**:
+   - In your DecapBridge dashboard, invite users via email
+   - Users receive email invites and can create their own CMS passwords
+   - No GitHub accounts required for content creators
+
+4. **Access CMS**:
    - Visit `https://yourusername.github.io/repository-name/admin/`
-   - Click "Login with GitHub"
-   - Authorize the application
+   - Click "Login"
+   - Use the credentials created through DecapBridge invitation
    - Start editing your content!
 
 #### Troubleshooting
 
-- **"Cannot connect to repository"**: Check your OAuth app callback URL is
-  exactly `https://api.netlify.com/auth/done`
-- **"Not Found" on /admin**: Ensure the deployment worked and try `/admin/` with
-  trailing slash
-- **Authentication loops**: Clear browser cache and cookies for both sites
+- **"Cannot connect to repository"**: Ensure your repository is properly linked in your DecapBridge site configuration
+- **"Not Found" on /admin**: Ensure the deployment worked and try `/admin/` with trailing slash
+- **Authentication issues**: Check that the identity_url and gateway_url in your config.yml match your DecapBridge site settings
+- **User access problems**: Verify that users have been properly invited through the DecapBridge dashboard
+- **Login loops**: Clear browser cache and cookies, and ensure users are using the correct DecapBridge credentials
 
 ### Option 2: Prose.io (Simple)
 
