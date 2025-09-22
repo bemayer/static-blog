@@ -1,3 +1,4 @@
 [build]
   command = "deno upgrade && deno task build"
   publish = "out"
+  environment = { NETLIFY_NEXT_PLUGIN_SKIP = "true" }
