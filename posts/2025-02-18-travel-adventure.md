@@ -4,7 +4,7 @@ date: 2025-02-18T22:52:00.000Z
 ---
 #### *The Ultimate Guide to Traveling on a Budget*
 
-![](/images/ejgcq0acumqaosd7kl26.webp)
+![](/static-blog/images/ejgcq0acumqaosd7kl26.webp)
 
 Traveling doesn’t have to be expensive! Here are some tips to explore the world without breaking the bank:
 

@@ -4,7 +4,7 @@ date: 2025-02-18T22:51:00.000Z
 ---
 #### *5 Habits That Can Transform Your Productivity*
 
-![](/images/understanding-5-areas-of-personal-development-feature641d6028520d78.69103709.webp)
+![](/static-blog/images/understanding-5-areas-of-personal-development-feature641d6028520d78.69103709.webp)
 
 Struggling to stay focused? Here are five powerful habits that can help you get more done in less time:
 
