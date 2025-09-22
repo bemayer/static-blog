@@ -28,7 +28,8 @@
   "exclude": [
     "**/.next/*",
     "**/out/*",
-    "**/node_modules/*"
+    "**/node_modules/*",
+    "**/*.md"
   ],
   "imports": {
     "@std/front-matter": "jsr:@std/front-matter@^1.0.7",

@@ -7,7 +7,6 @@ import yaml from "js-yaml";
 const postsDirectory = join(process.cwd(), "posts");
 const configPath = join(process.cwd(), "config", "site.yml");
 
-
 // Site configuration interface
 export interface SiteConfig {
   title: string;
